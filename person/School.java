@@ -78,7 +78,7 @@ public class School{
 	public void getFirstTeacherWithSubject(String subject){
 		for(int i=0; i < persons.length; i++){
 			if(persons[i]!=null &&  persons[i] instanceof Teacher){
-				if(((Teacher)persons[i]).getSub1().equals(subject) ||((Teacher)persons[i]).getSub2().equals(subject) ){
+				if(subject.equals(((Teacher)persons[i]).getSub1()) ||subject.equals(((Teacher)persons[i]).getSub2())){
 					System.out.println(persons[i]);
 					return;
 				}	
@@ -93,9 +93,39 @@ public class School{
 			}
 		}
 	}
+	public void getFirstStudentOlderThan(int age){
+		for(int i=0; i < persons.length; i++){
+			if(persons[i]!=null &&  persons[i] instanceof Student){
+				if(age>=persons[i].age){
+					System.out.println( persons[i]);
+					return;
+				}
+			}
+		}
+	}
+	public void getFirstStudentBySex(char sex){
+		for(int i=0; i < persons.length; i++){
+			if(persons[i]!=null &&  persons[i] instanceof Student){
+				if(sex == persons[i].getSex()){
+					System.out.println( persons[i]);
+					return;
+				}
+			}
+		}
+	}
+	public void getFirstTeacherByLastname(String lastname){
+		for(int i=0; i < persons.length; i++){
+			if(persons[i]!=null &&  persons[i] instanceof Student){
+				if(lastname == persons[i].getLastName()){
+					System.out.println( persons[i]);
+					return;
+				}
+			}
+		}
+	}
 	public static void main(String[] args) {
 		School s = new School();
-		s.addTeacher("Alex" , "schmidtberger", 100 , (char)100, "Mathe", "Physik");
+		s.addTeacher("Alex" , "schmidtberger", 100 , (char)100, null, "Physik");
 		s.addStudent("t", "w", 11, (char)100, "g");
 		//s.getPersons();
 		s.getFirstTeacherWithSubject("Mathe");
