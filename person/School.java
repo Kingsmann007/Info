@@ -78,8 +78,8 @@ public class School{
 	public void getFirstTeacherWithSubject(String subject){
 		for(int i=0; i < persons.length; i++){
 			if(persons[i]!=null &&  persons[i] instanceof Teacher){
-				if(persons[i].getSub1().equals(subject)){
-					System.out.println( persons[i]);
+				if(((Teacher)persons[i]).getSub1().equals(subject) ||((Teacher)persons[i]).getSub2().equals(subject) ){
+					System.out.println(persons[i]);
 					return;
 				}	
 			}
@@ -97,7 +97,8 @@ public class School{
 		School s = new School();
 		s.addTeacher("Alex" , "schmidtberger", 100 , (char)100, "Mathe", "Physik");
 		s.addStudent("t", "w", 11, (char)100, "g");
-		s.getPersons();
+		//s.getPersons();
+		s.getFirstTeacherWithSubject("Mathe");
 		//s.getFirstStudent();
 		//s.getFirstTeacher();
 	}
