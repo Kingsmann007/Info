@@ -85,6 +85,15 @@ public class School{
 			}
 		}
 	}
+	public void getTeachersWithSubject(String subject){
+		for(int i=0; i < persons.length; i++){
+			if(persons[i]!=null &&  persons[i] instanceof Teacher){
+				if(subject.equals(((Teacher)persons[i]).getSub1()) ||subject.equals(((Teacher)persons[i]).getSub2())){
+					System.out.println(persons[i]);
+				}	
+			}
+		}
+	}
 	public void getFirstStudent(){
 		for(int i=0; i < persons.length; i++){
 			if(persons[i]!=null &&  persons[i] instanceof Student){
@@ -128,8 +137,9 @@ public class School{
 		s.addTeacher("Alex" , "schmidtberger", 100 , (char)100, null, "Physik");
 		s.addStudent("t", "w", 11, (char)100, "g");
 		//s.getPersons();
-		s.getFirstTeacherWithSubject("Mathe");
+		//s.getFirstTeacherWithSubject("Mathe");
 		//s.getFirstStudent();
 		//s.getFirstTeacher();
+		//s.getFirstStudentBySex((char)100);
 	}
 }
